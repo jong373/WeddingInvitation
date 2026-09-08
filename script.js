@@ -1,3 +1,12 @@
+// =========================
+// Kakao 초기화
+// =========================
+if (typeof Kakao !== "undefined") {
+    if (!Kakao.isInitialized()) {
+        Kakao.init(KAKAO_JS_KEY);
+    }
+}
+
 const sections = document.querySelectorAll(".fade-up");
 
 const observer = new IntersectionObserver((entries) => {
