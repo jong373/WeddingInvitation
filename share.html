@@ -1,11 +1,10 @@
-```html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>카카오톡 공유 테스트</title>
+    <title>청첩장 공유 테스트</title>
 
     <script
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.3/kakao.min.js"
@@ -17,7 +16,7 @@
 
 <h2>카카오톡 공유 테스트</h2>
 
-<button id="shareButton">카카오톡 공유 테스트</button>
+<button id="shareButton">카카오톡으로 공유하기</button>
 
 <pre id="log"></pre>
 
@@ -32,26 +31,30 @@ function log(message) {
         message + "\n";
 }
 
+
+/* ① 카카오 SDK 확인 */
 log("① 페이지 실행");
 
-try {
+log("② Kakao 객체 확인: " + typeof Kakao);
 
-    log("② Kakao 객체 확인: " + typeof Kakao);
+
+/* ② 카카오 초기화 */
+try {
 
     Kakao.init(KAKAO_JS_KEY);
 
     log("③ Kakao.init 실행");
-
     log("④ Kakao 초기화 상태: " + Kakao.isInitialized());
 
 } catch (error) {
 
-    log("❌ 초기화 오류");
-    log(JSON.stringify(error, null, 2));
+    log("❌ Kakao 초기화 오류");
+    console.error(error);
 
 }
 
 
+/* ③ 버튼 클릭 시 카카오 공유 */
 document.getElementById("shareButton").addEventListener("click", function () {
 
     log("⑤ 공유 버튼 클릭");
@@ -60,24 +63,21 @@ document.getElementById("shareButton").addEventListener("click", function () {
 
         Kakao.Share.sendCustom({
             templateId: 1570543
-        })
-        .then(function(result) {
-
-            log("⑥ 공유 성공");
-            log(JSON.stringify(result, null, 2));
-
-        })
-        .catch(function(error) {
-
-            log("❌ 카카오 공유 오류");
-            log(JSON.stringify(error, null, 2));
-
         });
+
+        log("⑥ sendCustom 호출 완료");
 
     } catch (error) {
 
-        log("❌ 실행 오류");
-        log(JSON.stringify(error, null, 2));
+        log("❌ sendCustom 실행 오류");
+
+        console.error(error);
+
+        log(
+            error && error.message
+                ? error.message
+                : String(error)
+        );
 
     }
 
