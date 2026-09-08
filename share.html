@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>청첩장 공유</title>
+
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.3/kakao.min.js"
+            crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<script>
+    const KAKAO_JS_KEY = "c53d59796a73319efdfbb92a38d5f08f";
+    const KAKAO_TEMPLATE_ID = 1570543;
+
+    Kakao.init(KAKAO_JS_KEY);
+
+    Kakao.Share.sendCustom({
+        templateId: KAKAO_TEMPLATE_ID
+    });
+</script>
+
+</body>
+</html>
