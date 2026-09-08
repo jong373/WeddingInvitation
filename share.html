@@ -12,14 +12,25 @@
 
 <body>
 
+<p>카카오톡 공유 테스트</p>
+
 <script>
     const KAKAO_JS_KEY = "c53d59796a73319efdfbb92a38d5f08f";
-    const KAKAO_TEMPLATE_ID = 1570543;
 
     Kakao.init(KAKAO_JS_KEY);
 
     Kakao.Share.sendCustom({
-        templateId: KAKAO_TEMPLATE_ID
+        templateId: 1570543
+    })
+    .then(function(result) {
+        console.log("성공:", result);
+    })
+    .catch(function(error) {
+        console.error("카카오 공유 오류:", error);
+        document.body.innerHTML +=
+            "<pre style='white-space:pre-wrap;color:red;'>" +
+            JSON.stringify(error, null, 2) +
+            "</pre>";
     });
 </script>
 
