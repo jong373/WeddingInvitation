@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Wedding Invitation</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 카카오톡 미리보기 설정 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="황○○ ♥ ○○○ 결혼합니다">
+    <meta property="og:description" content="2026년 10월 17일 ○○웨딩홀에서 소중한 분들을 초대합니다">
+    <meta property="og:image" content="https://jong373.github.io/wedding-invitation/images/kakao.jpg">
+    <meta property="og:url" content="https://jong373.github.io/wedding-invitation/">
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+
+    <section id="hero">
+
+        <img src="images/cover.jpg" class="cover">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WEDDING INVITATION
+            </p>
+
+            <h1>
+
+                <span id="groomName">
+                    신랑 이름
+                </span>
+
+                <em>&</em>
+
+                <span id="brideName">
+                    신부 이름
+                </span>
+
+            </h1>
+
+            <p class="hero-date" id="heroDate"></p>
+
+        </div>
+
+        <div class="scroll-down">
+
+            <span></span>
+
+        </div>
+
+    </section>
+
+    <!-- ================= INVITATION ================= -->
+
+    <section id="invitation" class="fade-up">
+
+        <div class="section">
+
+            <h2>Invitation</h2>
+
+            <p class="message">
+
+                서로 다른 길을 걸어온 두 사람이<br>
+                평생을 함께하기로 약속했습니다.<br><br>
+
+                소중한 분들과<br>
+                행복한 순간을 함께하고 싶습니다.<br><br>
+
+                귀한 걸음으로 축복해 주시면<br>
+                더없는 기쁨이 되겠습니다.
+
+            </p>
+
+            <div class="parents">
+
+                <p>
+                    신랑 아버지 ○○○ · 어머니 ○○○의 아들 ○○○
+                </p>
+
+                <p>
+                    신부 아버지 ○○○ · 어머니 ○○○의 딸 홍유진
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= GALLERY ================= -->
+
+    <section id="gallery" class="fade-up">
+
+        <div class="section">
+
+            <h2>Gallery</h2>
+
+            <div class="gallery-grid">
+
+                <img src="images/gallery01.jpg" loading="lazy">
+                <img src="images/gallery02.jpg" loading="lazy">
+                <img src="images/gallery03.jpg" loading="lazy">
+                <img src="images/gallery04.jpg" loading="lazy">
+                <img src="images/gallery05.jpg" loading="lazy">
+                <img src="images/gallery06.jpg" loading="lazy">
+                <img src="images/gallery07.jpg" loading="lazy">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= WEDDING INFO ================= -->
+
+    <section id="wedding" class="fade-up">
+
+        <div class="section">
+
+            <h2>Wedding Day</h2>
+
+
+            <div class="calendar">
+
+                <h3 id="calendarTitle"></h3>
+
+
+                <div class="week">
+
+                    <span>일</span>
+                    <span>월</span>
+                    <span>화</span>
+                    <span>수</span>
+                    <span>목</span>
+                    <span>금</span>
+                    <span>토</span>
+
+                </div>
+
+
+                <div id="calendarDays"></div>
+
+                <div class="wedding-info">
+
+                    <p id="calendarDate"></p>
+
+                    <p id="weddingTime"></p>
+
+                    <p id="hall"></p>
+
+                    <p id="hallDetail"></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= LOCATION ================= -->
+
+    <section id="location" class="fade-up">
+
+        <div class="section">
+
+            <h2>Location</h2>
+
+            <div class="map">
+
+                <img src="images/map.jpg">
+
+            </div>
+
+
+            <div class="location-card">
+
+                <h3 id="locationHall">
+                    예식장 이름
+                </h3>
+
+                <p id="locationAddress">
+                   주소가 들어갑니다.
+                </p><br>
+
+
+                <div class="parking-info">
+
+                    -------주차 안내-------<br>
+
+                    건물 지하주차장 이용<br>
+                    3시간 무료
+
+                </div>
+
+                <div class="map-buttons">
+
+                    <button id="kakaoMapBtn">
+
+                        <img src="images/kakao-map.png">
+                        카카오맵
+                    </button>
+
+                    <button id="naverMapBtn">
+
+                        <img src="images/naver-map.png">
+                        네이버지도
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>    
+
+    </section>
+
+    <!-- ================= ACCOUNT ================= -->
+
+    <section id="account" class="fade-up">
+
+        <div class="section">
+
+            <h2>마음 전하실 곳</h2>
+
+            <hr class="account-line">
+
+            <p class="account-message">
+
+                참석이 어려워 직접 축하를 전하지 못하는 분들을 위해<br>
+                계좌번호를 기재하였습니다.<br><br>
+
+                너그러운 마음으로 양해 부탁드립니다.<br><br>
+
+                전해주시는 진심은 소중하게 간직하여<br>
+                좋은 부부의 모습으로 보답하겠습니다.
+
+            </p>
+
+            <!-- 신랑측 -->
+
+            <div class="account-card">
+
+                <div class="account-header">
+
+                    <span>신랑측 · 마음 전하실 곳</span>
+
+                    <span class="arrow">❯</span>
+
+                </div>
+
+                <div class="account-body">
+
+                    <div class="account-person">
+
+                        <p class="person-name" id="groomNameText"></p>
+
+                        <button class="gift-btn" data-id="groom">
+                            축하송금 안내
+                        </button>
+
+                    </div>
+
+                    <div class="account-person">
+
+                        <p class="person-name" id="groomFatherText"></p>
+
+                        <button class="gift-btn" data-id="groomFather">
+                            축하송금 안내
+                        </button>
+
+                    </div>   
+
+                    <div class="account-person">
+
+                        <p class="person-name" id="groomMotherText"></p>
+
+                        <button class="gift-btn" data-id="groomMother">
+                            축하송금 안내
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 신부측 -->
+
+            <div class="account-card">
+
+                <div class="account-header">
+
+                    <span>신부측 · 마음 전하실 곳</span>
+
+                    <span class="arrow">❯</span>
+
+                </div>
+
+                <div class="account-body">
+
+                    <div class="account-person">
+
+                        <p class="person-name" id="brideNameText"></p>
+
+                        <button class="gift-btn" data-id="bride">
+                            축하송금 안내
+                        </button>
+
+                    </div>
+
+                    <div class="account-person">
+
+                        <p class="person-name" id="brideFatherText"></p>
+
+                        <button class="gift-btn" data-id="brideFather">
+                            축하송금 안내
+                        </button>
+
+                    </div>
+
+                    <div class="account-person">
+
+                        <p class="person-name" id="brideMotherText"></p>
+
+                        <button class="gift-btn" data-id="brideMother">
+                            축하송금 안내
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>    
+
+    </section>
+
+    <div id="toast">
+        복사되었습니다.
+    </div>
+
+    <!-- ================= THANK YOU ================= -->
+
+    <section id="thanks" class="fade-up">
+
+        <div class="section">
+
+            <h2>Thank You</h2>
+
+            <p>
+
+                소중한 걸음으로<br>
+
+                함께해 주셔서<br>
+
+                진심으로 감사합니다.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= LIGHTBOX ================= -->
+
+    <div id="lightbox">
+
+        <button id="closeBtn">
+            ×
+        </button>
+
+        <button id="prevBtn">
+            ‹
+        </button>
+
+        <img id="lightboxImage">
+
+        <button id="nextBtn">
+            ›
+        </button>
+
+        <div id="counter">
+            1 / 6
+        </div>
+
+    </div>
+
+    <!-- ================= ACCOUNT POPUP ================= -->
+
+    <div id="accountModal">
+
+        <div class="modal-box">
+
+            <button id="modalClose">×</button>
+
+            <p id="modalBank"></p>
+
+            <strong id="modalAccount"></strong>
+
+            <p id="modalOwner"></p>
+
+            <button id="modalCopy">
+                계좌번호 복사
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>    
+
+</body>
+
+</html>
