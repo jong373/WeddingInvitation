@@ -1,5 +1,5 @@
 const KAKAO_JS_KEY = "c53d59796a73319efdfbb92a38d5f08f";
-const KAKAO_TEMPLATE_ID = 1570543;
+const KAKAO_TEMPLATE_ID = 136958;
 
 const wedding = {
     groom: "000",
