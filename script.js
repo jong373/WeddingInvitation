@@ -1,31 +1,16 @@
-const toast = document.getElementById("toast");
-let lastFocusedElement = null;
-
-function showToast(message) {
-    toast.textContent = message;
-    toast.classList.add("show");
-    window.setTimeout(() => toast.classList.remove("show"), 1800);
-}
-
-if (typeof Kakao !== "undefined" && typeof KAKAO_JS_KEY === "string" && KAKAO_JS_KEY) {
-    if (!Kakao.isInitialized()) Kakao.init(KAKAO_JS_KEY);
-} else {
-    console.warn("카카오 SDK 또는 JavaScript 키를 확인하세요.");
-}
-
 const sections = document.querySelectorAll(".fade-up");
 
-if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add("show");
-        });
-    }, { threshold: 0.15 });
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, {
+    threshold: 0.15
+});
 
-    sections.forEach(section => observer.observe(section));
-} else {
-    sections.forEach(section => section.classList.add("show"));
-}
+sections.forEach(section => observer.observe(section));
 
 const galleryImages = document.querySelectorAll(".gallery-grid img");
 
@@ -65,7 +50,6 @@ function showImage(){
 
     lightboxImage.src =
         galleryImages[currentIndex].src;
-    lightboxImage.alt = galleryImages[currentIndex].alt;
 
 
     lightboxImage.classList.add("change");
@@ -214,8 +198,19 @@ document
 
 function createCalendar(){
 
-    const [year, monthNumber, weddingDay] = wedding.date.split("-").map(Number);
-    const month = monthNumber - 1;
+    const date =
+        new Date(wedding.date);
+
+
+    const year =
+        date.getFullYear();
+
+    const month =
+        date.getMonth();
+
+
+    const weddingDay =
+        date.getDate();
 
 
     document.getElementById(
@@ -388,9 +383,6 @@ document.querySelectorAll(".gift-btn").forEach(btn=>{
         const id = btn.dataset.id;
 
         const info = accounts.find(a=>a.id===id);
-        if (!info) return;
-
-        lastFocusedElement = btn;
 
         document.getElementById("modalBank").textContent = info.bank;
         document.getElementById("modalAccount").textContent = info.account;
@@ -405,7 +397,6 @@ document.querySelectorAll(".gift-btn").forEach(btn=>{
 document.getElementById("modalClose").onclick=()=>{
 
     modal.classList.remove("show");
-    lastFocusedElement?.focus();
 
 };
 
@@ -414,7 +405,6 @@ modal.onclick=(e)=>{
     if(e.target===modal){
 
         modal.classList.remove("show");
-        lastFocusedElement?.focus();
 
     }
 
@@ -424,13 +414,15 @@ document.getElementById("modalCopy").onclick=async()=>{
     const text =
     document.getElementById("modalAccount").textContent;
 
-    try {
-        await navigator.clipboard.writeText(text);
-        showToast("계좌번호를 복사했습니다.");
-    } catch (error) {
-        console.warn("계좌번호 복사 실패", error);
-        showToast("복사에 실패했습니다. 계좌번호를 길게 눌러 복사해 주세요.");
-    }
+    await navigator.clipboard.writeText(text);
+
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+
+        toast.classList.remove("show");
+
+    },1800);
 
 };
 
@@ -456,21 +448,3 @@ document.getElementById("brideFatherText").textContent =
 document.getElementById("brideMotherText").textContent =
     accounts.find(a => a.id === "brideMother").name;
 
-// 카카오톡 사용자 정의 템플릿 공유
-function shareKakao() {
-    if (typeof Kakao === "undefined" || !Kakao.isInitialized() || typeof KAKAO_TEMPLATE_ID !== "number") {
-        showToast("카카오톡 공유를 준비하지 못했습니다.");
-        return;
-    }
-
-    Kakao.Share.sendCustom({ templateId: KAKAO_TEMPLATE_ID });
-}
-
-document.getElementById("kakaoShareBtn").addEventListener("click", shareKakao);
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && modal.classList.contains("show")) {
-        modal.classList.remove("show");
-        lastFocusedElement?.focus();
-    }
-});
