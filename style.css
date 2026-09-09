@@ -1442,3 +1442,20 @@ h2{
     }
 
 }
+
+.kakao-share-btn{
+    margin-top:35px;
+    padding:14px 24px;
+    border-radius:50px;
+    background:#fee500;
+    color:#191919;
+    font-size:16px;
+    font-weight:600;
+    transition:transform .2s ease, background .2s ease;
+}
+
+.kakao-share-btn:hover,
+.kakao-share-btn:focus-visible{
+    background:#f3d900;
+    transform:translateY(-2px);
+}
