@@ -2,89 +2,200 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>청첩장 공유 테스트</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-    <script
-        src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.3/kakao.min.js"
-        crossorigin="anonymous">
-    </script>
+    <title>카카오톡 공유 테스트</title>
+
+    <!-- Kakao JavaScript SDK -->
+    <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.8.3/kakao.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px 20px;
+            background: #f7f7f7;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            background: #FEE500;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        #log {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            text-align: left;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>카카오톡 공유 테스트</h2>
+    <h1>카카오톡 공유 테스트</h1>
 
-<button id="shareButton">카카오톡으로 공유하기</button>
+    <button onclick="shareKakao()">
+        카카오톡 공유 테스트
+    </button>
 
-<pre id="log"></pre>
+    <div id="log">① 페이지 실행</div>
 
-<script>
+    <script>
 
-const KAKAO_JS_KEY = "c53d59796a73319efdfbb92a38d5f08f";
+        // ============================================
+        // 1. 카카오 JavaScript 키
+        // ============================================
 
-function log(message) {
-    console.log(message);
-
-    document.getElementById("log").textContent +=
-        message + "\n";
-}
-
-
-/* ① 카카오 SDK 확인 */
-log("① 페이지 실행");
-
-log("② Kakao 객체 확인: " + typeof Kakao);
+        const KAKAO_JS_KEY = 'c53d59796a73319efdfbb92a38d5f08f';
 
 
-/* ② 카카오 초기화 */
-try {
+        // ============================================
+        // 2. 카카오 SDK 확인
+        // ============================================
 
-    Kakao.init(KAKAO_JS_KEY);
+        console.log("① 페이지 실행");
 
-    log("③ Kakao.init 실행");
-    log("④ Kakao 초기화 상태: " + Kakao.isInitialized());
+        const log = document.getElementById("log");
 
-} catch (error) {
+        if (typeof Kakao === "undefined") {
 
-    log("❌ Kakao 초기화 오류");
-    console.error(error);
+            console.error("❌ Kakao 객체가 없습니다.");
 
-}
+            log.innerText +=
+                "\n❌ Kakao SDK를 불러오지 못했습니다.";
+
+        } else {
+
+            console.log("② Kakao 객체 확인:", typeof Kakao);
+
+            log.innerText +=
+                "\n② Kakao 객체 확인: " + typeof Kakao;
 
 
-/* ③ 버튼 클릭 시 카카오 공유 */
-document.getElementById("shareButton").addEventListener("click", function () {
+            // ========================================
+            // 3. Kakao 초기화
+            // ========================================
 
-    log("⑤ 공유 버튼 클릭");
+            try {
 
-    try {
+                Kakao.init(KAKAO_JS_KEY);
 
-        Kakao.Share.sendCustom({
-            templateId: 1570543
-        });
+                console.log("③ Kakao.init 실행");
 
-        log("⑥ sendCustom 호출 완료");
+                log.innerText +=
+                    "\n③ Kakao.init 실행";
 
-    } catch (error) {
+                console.log(
+                    "④ Kakao 초기화 상태:",
+                    Kakao.isInitialized()
+                );
 
-        log("❌ sendCustom 실행 오류");
+                log.innerText +=
+                    "\n④ Kakao 초기화 상태: " +
+                    Kakao.isInitialized();
 
-        console.error(error);
+            } catch (error) {
 
-        log(
-            error && error.message
-                ? error.message
-                : String(error)
-        );
+                console.error(
+                    "❌ Kakao 초기화 오류:",
+                    error
+                );
 
-    }
+                log.innerText +=
+                    "\n❌ Kakao 초기화 오류\n" +
+                    JSON.stringify(error);
+            }
+        }
 
-});
 
-</script>
+        // ============================================
+        // 4. 카카오톡 공유
+        // ============================================
+
+        function shareKakao() {
+
+            console.log("⑤ 공유 버튼 클릭");
+
+            log.innerText +=
+                "\n⑤ 공유 버튼 클릭";
+
+
+            if (!Kakao.isInitialized()) {
+
+                console.error(
+                    "❌ Kakao가 초기화되지 않았습니다."
+                );
+
+                log.innerText +=
+                    "\n❌ Kakao가 초기화되지 않았습니다.";
+
+                return;
+            }
+
+
+            // ========================================
+            // 템플릿 ID 1570543 사용
+            // ========================================
+
+            Kakao.Share.sendCustom({
+
+                templateId: 1570543
+
+            })
+
+            .then(function(response) {
+
+                console.log(
+                    "⑥ 공유 성공",
+                    response
+                );
+
+                log.innerText +=
+                    "\n⑥ ✅ 공유 성공\n" +
+                    JSON.stringify(
+                        response,
+                        null,
+                        2
+                    );
+
+            })
+
+            .catch(function(error) {
+
+                console.error(
+                    "❌ 공유 실패",
+                    error
+                );
+
+                log.innerText +=
+                    "\n❌ 공유 실패\n" +
+                    JSON.stringify(
+                        error,
+                        null,
+                        2
+                    );
+            });
+        }
+
+    </script>
 
 </body>
 </html>
-```
