@@ -647,6 +647,10 @@ h2{
 
 @media(max-width:768px){
 
+    section{
+        padding:65px 0;
+    }
+
     h2{
 
         font-size:36px;
@@ -679,7 +683,7 @@ h2{
 
     .card{
 
-        padding:30px;
+        padding:22px;
 
     }
 
@@ -869,7 +873,7 @@ h2{
 
     background:white;
 
-    padding:40px 25px;
+    padding:28px 18px;
 
     border-radius:24px;
 
@@ -1439,6 +1443,27 @@ h2{
         object-fit:cover;
         border-radius:12px;
 
+    }
+
+    .wedding-info{
+        margin-top:45px;
+        padding-top:20px;
+    }
+
+    #location{
+        padding-top:25px;
+    }
+
+    .location-card{
+        padding:35px 20px;
+    }
+
+    #location h2{
+        margin-bottom:15px !important;
+    }
+
+    #account h2{
+        margin-bottom:25px !important;
     }
 
 }
