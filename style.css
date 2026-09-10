@@ -1459,11 +1459,29 @@ h2{
     }
 
     #location h2{
-        margin-bottom:15px !important;
+        margin:35px !important;
+        padding:0 !important;
+    }
+
+    #location .map{
+        height:auto !important;
+        margin-top:0 !important;
+    }  
+
+    #location .map img{
+        width:100%;
+        height:auto !important;
+        object-fit:contain;
     }
 
     #account h2{
         margin-bottom:25px !important;
+    }
+
+    .today::before{
+        font-size:52px;
+        line-height:1;
+        transform:translate(-50%,-50%) scaleY(0.8);
     }
 
 }
