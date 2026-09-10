@@ -1,0 +1,1461 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#faf8f5;
+    color:#2d2d2d;
+    font-family:"Pretendard","Noto Sans KR",sans-serif;
+    line-height:1.7;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    border:none;
+    background:none;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+/* =========================
+   공통
+========================= */
+
+.section{
+
+    width:min(1200px,90%);
+    margin:auto;
+
+}
+
+section{
+
+    padding:120px 0;
+
+}
+
+h2{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:48px;
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+    font-weight:600;
+
+    color:#222;
+
+}
+
+/* =========================
+   HERO
+========================= */
+
+#hero{
+
+    position:relative;
+
+    height:100vh;
+
+    overflow:hidden;
+
+}
+
+.cover{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+}
+
+.hero-content{
+
+    position:relative;
+    z-index:2;
+
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:white;
+
+    padding:0 30px 120px;
+
+}
+
+.small-title{
+
+    letter-spacing:6px;
+
+    font-size:14px;
+
+    margin-bottom:30px;
+
+}
+
+.hero-content h1{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:72px;
+
+    font-weight:500;
+
+    letter-spacing:2px;
+
+    line-height:1.3;
+
+}
+
+.hero-content em{
+
+    display:block;
+
+    font-style:normal;
+
+    margin:15px 0;
+
+    color:#d6bc84;
+
+}
+
+.hero-date{
+
+    margin-top:25px;
+
+    font-size:18px;
+
+    letter-spacing:5px;
+
+    opacity:.9;
+
+}
+
+.scroll-down{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:35px;
+
+    transform:translateX(-50%);
+
+    z-index:5;
+
+}
+
+.scroll-down span{
+
+    display:block;
+
+    width:26px;
+
+    height:42px;
+
+    border:2px solid #fff;
+
+    border-radius:30px;
+
+    position:relative;
+
+}
+
+.scroll-down span::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:8px;
+
+    transform:translateX(-50%);
+
+    width:4px;
+
+    height:8px;
+
+    border-radius:50px;
+
+    background:#fff;
+
+    animation:scroll 1.8s infinite;
+
+}
+
+@keyframes scroll{
+
+    0%{
+        opacity:0;
+        transform:translate(-50%,0);
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
+        transform:translate(-50%,14px);
+    }
+
+}
+
+/* =========================
+   INVITATION
+========================= */
+
+#invitation{
+
+    background:#faf8f5;
+
+}
+
+.message{
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:#555;
+
+    line-height:2.2;
+
+}
+
+.parents{
+
+    margin-top:70px;
+
+    text-align:center;
+
+}
+
+.parents p{
+
+    margin:15px 0;
+
+    font-size:17px;
+
+}
+
+/* ===========================================
+   GALLERY
+=========================================== */
+
+#gallery{
+    background:#fff;
+}
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+/* 첫 번째 사진 크게 */
+
+.gallery-grid img:first-child{
+
+    grid-column:1 / -1;
+
+    height:600px;
+
+}
+
+/* 나머지 사진 */
+
+.gallery-grid img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.gallery-grid img:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 14px 30px rgba(0,0,0,.12);
+
+}
+
+/* ===========================================
+   CARD
+=========================================== */
+
+.card{
+
+    background:#fff;
+
+    padding:45px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.06);
+
+}
+
+.card h3{
+
+    font-size:34px;
+
+    margin-bottom:20px;
+
+    font-family:"Cormorant Garamond",serif;
+
+}
+
+.card p{
+
+    margin:10px 0;
+
+    color:#666;
+
+}
+
+/* ===========================================
+   MAP
+=========================================== */
+
+.map{
+
+    height:400px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:25px;
+
+}
+
+
+.map img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+.map-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+}
+
+.map-buttons button,
+.copy-btn{
+
+    background:#fff;
+    color:#222;
+
+    border:1px solid #ddd;
+
+    padding:15px 24px;
+
+    border-radius:50px;
+
+    font-size:16px;
+    font-weight:600;
+
+    transition:all .3s ease;
+
+}
+
+.map-buttons button{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+}
+
+
+.map-buttons button img{
+
+    width:30px;
+
+    height:30px;
+
+    object-fit:contain;
+
+}
+
+.map-buttons button:hover,
+.copy-btn:hover{
+
+    background:#222;
+    color:#fff;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+}
+
+/* ===========================================
+   ACCOUNT
+=========================================== */
+
+.account-line{
+
+    border:0;
+
+    border-top:1px solid #ececec;
+
+    margin:35px 0 45px;
+
+}
+
+.account-message{
+
+    text-align:center;
+
+    color:#666;
+
+    line-height:2.1;
+
+    font-size:16px;
+
+    margin-bottom:45px;
+
+}
+
+/* 카드 */
+
+.account-card{
+
+    background:#fff;
+
+    border:1px solid #ececec;
+
+    border-radius:16px;
+
+    margin-bottom:18px;
+
+    overflow:hidden;
+
+    box-shadow:none;
+
+}
+
+/* 상단(신랑측/신부측) */
+
+.account-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px 25px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+/* 화살표 */
+
+.arrow{
+
+    font-size:22px;
+
+    color:#999;
+
+    transition:.3s;
+
+}
+
+/* 펼쳐지는 영역 */
+
+.account-body{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    padding:0 25px;
+
+    text-align:center;
+
+    transition:max-height .35s ease,
+               padding .35s ease;
+
+}
+
+.account-card.active .account-body{
+
+    max-height:250px;
+
+    padding:0 25px 25px;
+
+}
+
+.account-card.active .arrow{
+
+    transform:rotate(180deg);
+
+}
+
+.account-body p{
+
+    color:#666;
+
+    margin:15px 0 10px;
+
+}
+
+.account-body strong{
+
+    display:block;
+
+    margin-bottom:20px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+.account-body .copy-btn{
+
+    margin:0 auto;
+
+    background:#222;
+
+    color:#fff;
+
+    padding:12px 26px;
+
+    border-radius:30px;
+
+}
+
+.account-body .copy-btn:hover{
+
+    background:#c6a76a;
+
+}
+
+/* ===========================================
+   THANK YOU
+=========================================== */
+
+#thanks{
+
+    background:white;
+
+    text-align:center;
+
+}
+
+#thanks p{
+
+    font-size:20px;
+
+    line-height:2;
+
+}
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media(max-width:768px){
+
+    h2{
+
+        font-size:36px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:48px;
+
+    }
+
+    .gallery-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .gallery-grid img:first-child{
+
+        height:420px;
+
+    }
+
+    .gallery-grid img{
+
+        height:260px;
+
+    }
+
+    .card{
+
+        padding:30px;
+
+    }
+
+}
+
+/* =========================
+   Scroll Animation
+========================= */
+
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* ===========================
+   LIGHTBOX
+=========================== */
+
+#lightbox{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: .35s;
+
+    z-index: 9999;
+}
+
+#lightbox.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+#lightbox img{
+
+    width:auto;
+
+    height:auto;
+
+    max-width:90vw;
+
+    max-height:85vh;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+}
+
+#lightbox.active img{
+
+    transform:scale(1);
+
+}
+
+#closeBtn{
+
+    position:absolute;
+
+    top:25px;
+
+    right:25px;
+
+    color:white;
+
+    font-size:42px;
+
+}
+
+#prevBtn{
+
+    position:absolute;
+
+    left:20px;
+
+    color:white;
+
+    font-size:70px;
+
+}
+
+#nextBtn{
+
+    position:absolute;
+
+    right:20px;
+
+    color:white;
+
+    font-size:70px;
+
+}
+
+#counter{
+
+    position:absolute;
+
+    bottom:30px;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+/* ===========================
+   TOAST
+=========================== */
+
+#toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:35px;
+
+    transform:translateX(-50%) translateY(100px);
+
+    background:#222;
+
+    color:#fff;
+
+    padding:14px 24px;
+
+    border-radius:30px;
+
+    opacity:0;
+
+    transition:.35s;
+
+    z-index:99999;
+
+}
+
+#toast.show{
+
+    opacity:1;
+
+    transform:translateX(-50%) translateY(0);
+
+}
+
+.copy-btn{
+
+    margin-top:18px;
+
+    background:#222;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+}
+
+.copy-btn:hover{
+
+    background:#c6a76a;
+
+}
+
+/* ===========================
+   CALENDAR
+=========================== */
+
+.calendar{
+
+    background:white;
+
+    padding:40px 25px;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.05);
+
+    text-align:center;
+
+}
+
+
+.calendar h3{
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+}
+
+
+.week{
+
+    display:grid;
+
+    grid-template-columns:repeat(7,1fr);
+
+    margin-bottom:10px;
+
+    color:#888;
+
+}
+
+
+#calendarDays{
+
+    display:grid;
+
+    grid-template-columns:repeat(7,1fr);
+
+    gap:8px;
+
+}
+
+
+#calendarDays span{
+
+    padding:10px 0;
+
+}
+
+
+.today{
+
+    position:relative;
+
+    color:#fff;
+
+    font-weight:700;
+
+    z-index:1;
+
+}
+
+.today::before{
+
+    content:"♥";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    font-size:70px;
+
+    color:#d65b74;
+
+    text-shadow:0 4px 10px rgba(214,91,116,.35);
+
+    z-index:-1;
+
+}
+
+/* ===========================
+   LIGHTBOX ANIMATION
+=========================== */
+
+
+#lightboxImage{
+
+    animation:none;
+
+}
+
+
+#lightboxImage.change{
+
+    animation:imageChange .35s ease;
+
+}
+
+
+@keyframes imageChange{
+
+
+    from{
+
+        opacity:.3;
+
+        transform:scale(.95);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   LOCATION
+=========================== */
+
+
+.location-card{
+
+    background:white;
+
+    padding:65px 30px;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.05);
+
+}
+
+
+.location-card h3{
+
+    font-size:24px;
+
+    margin-bottom:20px;
+
+}
+
+
+.location-card p{
+
+    color:#666;
+
+    line-height:1.8;
+
+}
+
+
+.transport{
+
+    margin-top:30px;
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+
+.transport div{
+
+    background:#fafafa;
+
+    padding:20px;
+
+    border-radius:18px;
+
+}
+
+/* 주차 안내 */
+
+.parking-info{
+
+    margin-top:5px;
+
+    padding-top:5px;
+
+    line-height:1.9;
+
+    color:#666;
+
+}
+
+
+/* 지도 버튼 */
+
+.location-card .map-buttons{
+
+    margin-top:45px;
+
+}
+
+/* ===========================
+   WEDDING INFO
+=========================== */
+
+.wedding-info{
+
+    margin-top:90px;   /* 달력과 거리 */
+
+    padding-top:30px;
+
+    border-top:1px solid #eee;
+
+}
+
+
+.wedding-info p{
+
+    margin:10px 0;
+
+    text-align:center;
+
+}
+
+
+/* 날짜 */
+
+#calendarDate{
+
+    font-size:18px;
+
+    font-weight:500;
+
+    color:#000000;
+
+}
+
+
+/* 시간 */
+
+#weddingTime{
+
+    font-size:18px;
+
+    color:#000000;
+
+}
+
+
+/* 장소 */
+
+#hall{
+
+    font-size:17px;
+
+    color:#000000;
+
+}
+
+/* 홀 상세 설명 */
+
+#hallDetail{
+
+    font-size:17px;
+
+    color:#000000;
+
+}
+
+
+/* 상세 설명 카드 */
+
+.calendar .card{
+
+    margin-top:25px;
+
+    padding:25px;
+
+    background:#faf8f5;
+
+    border-radius:18px;
+
+    box-shadow:none;
+
+}
+
+/* ===========================
+   ACCOUNT PERSON
+=========================== */
+
+.account-person{
+
+    text-align:center;
+
+    padding:28px 0;
+
+}
+
+.account-person:not(:last-child){
+
+    border-bottom:1px solid #f3f3f3;
+
+}
+
+
+/* 이름 */
+
+.person-name{
+
+    font-size:18px;
+
+    font-weight:500;
+
+    color:#9a7d7d;
+
+    margin-bottom:18px;
+
+}
+
+
+/* 축하송금 버튼 */
+
+.gift-btn{
+
+    background:#fff;
+
+    border:2px solid #e7ddd8;
+
+    color:#444;
+
+    border-radius:50px;
+
+    padding:12px 32px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.gift-btn:hover{
+
+    background:#c6a76a;
+
+    border-color:#c6a76a;
+
+    color:#fff;
+
+}
+
+
+/* 펼쳐진 영역 */
+
+.account-card.active .account-body{
+
+    max-height:700px;   /* 기존 250px → 700px */
+
+    padding:20px 25px 25px;
+
+}
+
+/* ===========================
+   ACCOUNT MODAL
+=========================== */
+
+#accountModal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.3s;
+
+    z-index:99999;
+
+}
+
+#accountModal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.modal-box{
+
+    width:min(90%,360px);
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:35px 30px;
+
+    text-align:center;
+
+    position:relative;
+
+}
+
+#modalClose{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f7f7f7;
+
+    color:#777;
+
+    font-size:22px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.25s;
+
+}
+
+#modalClose:hover{
+
+    background:#ececec;
+
+    color:#222;
+
+}
+
+#modalName{
+
+    font-size:26px;
+
+    font-weight:600;
+
+    color:#222;
+
+    margin-bottom:18px;
+
+    letter-spacing:-0.3px;
+
+}
+
+#modalBank{
+
+    font-size:15px;
+
+    color:#999;
+
+    margin-bottom:8px;
+
+}
+
+#modalAccount{
+
+    display:block;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#222;
+
+    letter-spacing:1px;
+
+    margin-bottom:30px;
+
+}
+
+#modalCopy{
+
+    width:100%;
+
+    height:54px;
+
+    background:#222;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    letter-spacing:0.5px;
+
+    transition:all .25s ease;
+
+}
+
+#modalCopy:hover{
+
+    background:#c6a76a;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 25px rgba(198,167,106,.35);
+
+}
+
+#modalOwner{
+
+    margin-bottom:30px;
+
+    color:#777;
+
+    font-size:15px;
+
+}
+
+/* ===========================
+   MOBILE GALLERY
+=========================== */
+
+@media (max-width:768px){
+
+    .gallery-grid{
+
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+
+    }
+
+    .gallery-grid img{
+
+        width:100%;
+        aspect-ratio:1/1;
+        object-fit:cover;
+        border-radius:12px;
+
+    }
+
+}
+
+.kakao-share-btn{
+    margin-top:35px;
+    padding:14px 24px;
+    border-radius:50px;
+    background:#fee500;
+    color:#191919;
+    font-size:16px;
+    font-weight:600;
+    transition:transform .2s ease, background .2s ease;
+}
+
+.kakao-share-btn:hover,
+.kakao-share-btn:focus-visible{
+    background:#f3d900;
+    transform:translateY(-2px);
+}
